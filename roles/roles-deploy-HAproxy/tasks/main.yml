@@ -5,23 +5,22 @@
     name: httpie
     state: latest
         
-- name: Install HAproxy
+- name: Install {{ package }}
   yum:
-    name: haproxy
+    name: " {{ package }}"
     state: latest
 
-- name: enable haproxy on boot
+- name: enable {{ package }} on boot
   service:
-    name: haproxy
-    state: started
+    name: "{{ package }}"
+    enabled: yes 
         
-- name: configure haproxy
+- name: configure {{ package }}
   template: 
     src: haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
 
-- name: restart haproxy
+- name: restart {{ package }}
   service:
-    name: haproxy
+    name: "{{ package }}"
     state: restarted
-    enabled: yes

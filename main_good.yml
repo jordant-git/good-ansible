@@ -40,9 +40,9 @@
         src: index.html.app2
         dest: /usr/share/tomcat/webapps/ansible/index.html    
 
-- name: install and initialize postgresql
+- name: install and initialize postgresql from Ansible galaxy geerlinguy
   hosts: appdbs
   become: true
   roles:
     - roles-enable-repos
-    - roles-deploy-postgres
+    - geerlingguy.postgresql

@@ -5,7 +5,7 @@
 
 - name: Install and deploy haproxy
   hosts: frontends
-  gather_facts: false
+  gather_facts: true
   become: yes
   roles:
     - roles-enable-repos
